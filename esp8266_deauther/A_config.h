@@ -465,7 +465,7 @@
 #endif /* ifndef WEB_USE_SPIFFS */
 
 #ifndef DEFAULT_LANG
-  #define DEFAULT_LANG "en"
+  #define DEFAULT_LANG "vi"
 #endif /* ifndef DEFAULT_LANG */
 
 // ===== CLI ===== //

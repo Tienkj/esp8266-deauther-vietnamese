@@ -33,8 +33,8 @@
 			<div class="col-12">
 				<h1 class="header" data-translate="scan">Scan</h1>
 
-				<button id=scanZero onclick="scan(0)">Scan APs</button>
-				<button id=scanOne onclick="scan(1)">Scan Stations</button>
+				<button id=scanZero onclick="scan(0)" data-translate="scan_aps">Scan APs</button>
+				<button id=scanOne onclick="scan(1)" data-translate="scan_stations">Scan Stations</button>
 				<button id=RButton onclick="load()" data-translate="reload" class="right">Reload</button>
 			</div>
 		</div>
@@ -87,14 +87,14 @@
 
 				<hr>
 
-				<h2><span>Access Points</span>: <span id="apNum"></span></h2>
+				<h2><span data-translate="access_points">Access Points</span>: <span id="apNum"></span></h2>
 				<table id="apTable"></table>
 				<button onclick="selectAll(0,true)" data-translate="select_all">select all</button>
 				<button onclick="selectAll(0,false)" data-translate="deselect_all">deselect all</button>
 
 				<hr>
 
-				<h2><span>Stations</span>: <span id="stNum"></span></h2>
+				<h2><span data-translate="stations">Stations</span>: <span id="stNum"></span></h2>
 				<table id="stTable"></table>
 				<button onclick="selectAll(1,true)" data-translate="select_all">select all</button>
 				<button onclick="selectAll(1,false)" data-translate="deselect_all">deselect all</button>
@@ -110,10 +110,10 @@
 		</div>
 	</div>
 	<footer>
-		<span id="version">Version 2.6.1</span>
+		<span id="version"><span data-translate="version">Version</span> 2.6.1</span>
 		<br>
 		<br>
-		<a href="http://deauther.maltronics.com" target="_blank">Wiki</a> | <a href="info.html">Credits</a>
+		<a href="http://deauther.maltronics.com" target="_blank">Wiki</a> | <a href="info.html" data-translate="credits">Credits</a>
 	</footer>
 </body>
 

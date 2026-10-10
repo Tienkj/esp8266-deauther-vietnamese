@@ -31,15 +31,15 @@ function convertLineBreaks(str) {
 function showMessage(msg) {
 	if (msg.startsWith("ERROR")) {
 		getE("status").style.backgroundColor = "#d33";
-		getE("status").innerHTML = "disconnected";
+		getE("status").innerHTML = lang("status_disconnected", "disconnected");
 
 		console.error("disconnected (" + msg + ")");
 	} else if (msg.startsWith("LOADING")) {
 		getE("status").style.backgroundColor = "#fc0";
-		getE("status").innerHTML = "loading...";
+		getE("status").innerHTML = lang("status_loading", "loading...");
 	} else {
 		getE("status").style.backgroundColor = "#3c5";
-		getE("status").innerHTML = "connected";
+		getE("status").innerHTML = lang("status_connected", "connected");
 
 		console.log("" + msg + "");
 	}
@@ -89,8 +89,10 @@ function getFile(adr, callback, timeout, method, onTimeout, onError) {
 	console.log(adr);
 }
 
-function lang(key) {
-	return convertLineBreaks(esc(langJson[key]));
+function lang(key, fallback) {
+	var text = langJson[key];
+	if (text === undefined) text = fallback;
+	return convertLineBreaks(esc(text));
 }
 
 function parseLang(fileStr) {
@@ -99,7 +101,8 @@ function parseLang(fileStr) {
 		var elements = document.querySelectorAll("[data-translate]");
 		for (i = 0; i < elements.length; i++) {
 			var element = elements[i];
-			element.innerHTML = lang(element.getAttribute("data-translate"));
+			var key = element.getAttribute("data-translate");
+			if (langJson[key] !== undefined) element.innerHTML = lang(key);
 		}
 	}
 	document.querySelector('html').setAttribute("lang", langJson["lang"]);
